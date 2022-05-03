@@ -8,6 +8,7 @@ wb = openpyxl.load_workbook(filename = 'Pricess2.xlsx')
 sheet_price1 = wb['Price1']
 sheet_price2 = wb['Price2']
 sheet_kurs = wb['Kurs']
+nacenka = 0.05
 
 
 
@@ -126,7 +127,7 @@ def read_no_p2(no, row, sheet=sheet_price1, sheet2=sheet_price2):
                     price = sheet2.cell(i, 12).value
                     sheet.cell(row , 16).value = price
                 else:
-                    price = round((float(sheet2.cell(i, 12).value) + 0.2), 1)
+                    price = round((float(sheet2.cell(i, 12).value) + nacenka), 1)
                     sheet.cell(row , 16).value = price
             except:
                 pass
